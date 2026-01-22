@@ -5,3 +5,6 @@
 !docker-compose.yml
 !nginx.conf
 !.gitignore
+
+# Ignorar pastas de projetos específicos para não subirem para o dev-ambiente
+/padroes-comportamentais/
