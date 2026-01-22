@@ -1,0 +1,7 @@
+# Ignora tudo
+/*
+
+# Exceções
+!docker-compose.yml
+!nginx.conf
+!.gitignore

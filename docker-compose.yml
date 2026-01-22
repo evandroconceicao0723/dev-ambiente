@@ -1,0 +1,26 @@
+services:
+  app:
+    image: php:8.4-fpm
+    container_name: php84-multi-app
+    volumes:
+      # Mapeia a pasta dev inteira para dentro do container
+      - .:/var/www/html
+    networks:
+      - dev-network
+
+  web:
+    image: nginx:alpine
+    container_name: nginx-multi-server
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+    networks:
+      - dev-network
+
+networks:
+  dev-network:
+    driver: bridge
